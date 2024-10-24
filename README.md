@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# **Intent Recognition App**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **React-based web application** that uses **TensorFlow.js** and the **Universal Sentence Encoder** to perform **intent recognition**. Users can input natural language questions, and the app identifies the closest matching intent based on pre-trained embeddings.
 
-## Available Scripts
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+## **Features**
 
-In the project directory, you can run:
+- **Client-Side Intent Recognition**: The model runs entirely in the browser, ensuring fast and private intent recognition.
+- **Universal Sentence Encoder**: The app uses TensorFlow.js with Universal Sentence Encoder to generate sentence embeddings for intent matching.
+- **Interactive UI**: Users can input questions and get real-time intent recognition results.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Table of Contents**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Technical Details](#technical-details)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Installation**
 
-### `npm run build`
+### **Prerequisites**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node.js** (v14 or above)
+- **npm** or **yarn** package manager
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Step-by-Step Installation**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository**:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/feliks-j/intent-recognition.git
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Navigate to the project directory**:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   cd intent-recognition
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Install the dependencies**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+4. **Run the application**:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   The app will be available at `http://localhost:3000`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## **Usage**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Once the app is running, follow these steps to use it:
 
-### Analyzing the Bundle Size
+1. **Enter a question** in the input field on the main page.
+2. **Click the "Submit" button** to send the question for intent recognition.
+3. The **matched intent** will be displayed below the input field based on the pre-trained model.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## **Deployment**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### **Deploying to Vercel**
 
-### Advanced Configuration
+To deploy this app on Vercel, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. **Install the Vercel CLI**:
 
-### Deployment
+   ```bash
+   npm install -g vercel
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. **Login to Vercel**:
 
-### `npm run build` fails to minify
+   ```bash
+   vercel login
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Deploy the app**:
+
+   In the project directory, run:
+
+   ```bash
+   vercel
+   ```
+
+   Vercel will guide you through the deployment process, and once the deployment is successful, you will get a URL where the app is hosted (e.g., `https://your-app-name.vercel.app`).
+
+4. **Access the deployed app**: Once deployed, the app will be live at the provided URL.
+
+---
+
+## **Technical Details**
+
+### **Tech Stack**
+
+- **React**: The frontend is built using React.
+- **TensorFlow.js**: TensorFlow.js is used to load and run the Universal Sentence Encoder directly in the browser.
+- **Universal Sentence Encoder**: This is a pre-trained model that generates embeddings for sentences, which are used for intent recognition.
+- **Vercel**: For deployment of the web application.
+
+### **How It Works**
+
+1. **Sentence Embeddings**: When the app starts, the Universal Sentence Encoder model is loaded in the browser.
+2. **Input Question**: When the user inputs a question, the app generates an embedding (vector representation) of the question.
+3. **Similarity Calculation**: The app compares the input question's embedding with the embeddings of predefined example sentences using cosine similarity.
+4. **Intent Recognition**: The predefined example sentence with the highest similarity score is identified, and its corresponding intent is displayed as the result.
+
+### **Dependencies**
+
+- **@tensorflow/tfjs**: TensorFlow.js for machine learning in the browser.
+- **@tensorflow-models/universal-sentence-encoder**: A pre-trained model for generating sentence embeddings.
+- **React**: The user interface is built using React.
+- **Axios**: If using a backend to fetch data (optional).
