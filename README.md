@@ -19,9 +19,6 @@ This project is a **React-based web application** that uses **TensorFlow.js** an
 - [Usage](#usage)
 - [Deployment](#deployment)
 - [Technical Details](#technical-details)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
